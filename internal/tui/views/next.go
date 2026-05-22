@@ -105,7 +105,7 @@ func (m NextView) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		if msg.String() == "enter" {
 			if li, ok := m.list.SelectedItem().(ListItem); ok {
-				return m, func() tea.Msg { return ItemSelectedMsg{Item: li.Item} }
+				return m, func() tea.Msg { return ItemSelectedMsg(li) }
 			}
 		}
 	case tea.WindowSizeMsg:

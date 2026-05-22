@@ -37,7 +37,7 @@ func (m BlockedView) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.String() {
 		case "enter":
 			if li, ok := m.list.SelectedItem().(ListItem); ok {
-				return m, func() tea.Msg { return ItemSelectedMsg{Item: li.Item} }
+				return m, func() tea.Msg { return ItemSelectedMsg(li) }
 			}
 		case "d":
 			if li, ok := m.list.SelectedItem().(ListItem); ok {
