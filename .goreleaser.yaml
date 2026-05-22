@@ -33,6 +33,30 @@ archives:
 checksum:
   name_template: "checksums.txt"
 
+brews:
+  - name: liste
+    repository:
+      owner: pufferhaus
+      name: homebrew-liste
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+    directory: Formula
+    homepage: "https://github.com/pufferhaus/liste"
+    description: "Portable CLI roadmap tracker for humans and AI agents"
+    license: "MIT"
+    test: |
+      system "#{bin}/liste", "version"
+    install: |
+      bin.install "liste"
+
+scoops:
+  - repository:
+      owner: pufferhaus
+      name: scoop-liste
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+    homepage: "https://github.com/pufferhaus/liste"
+    description: "Portable CLI roadmap tracker for humans and AI agents"
+    license: "MIT"
+
 changelog:
   sort: asc
   filters:
