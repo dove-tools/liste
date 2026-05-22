@@ -37,7 +37,7 @@ brews:
   - name: liste
     repository:
       owner: pufferhaus
-      name: liste
+      name: homebrew-tap
       token: "{{ .Env.GITHUB_TOKEN }}"
     directory: Formula
     homepage: "https://github.com/pufferhaus/liste"

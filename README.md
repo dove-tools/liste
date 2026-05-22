@@ -22,7 +22,7 @@ Items are stored as individual markdown files with YAML frontmatter in a `.liste
 ### Homebrew (macOS / Linux)
 
 ```bash
-brew install pufferhaus/liste/liste
+brew install pufferhaus/tap/liste
 ```
 
 ### Claude Code plugin
