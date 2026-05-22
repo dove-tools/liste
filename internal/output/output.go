@@ -231,16 +231,30 @@ func (f *Formatter) ItemList(items []*model.Item) {
 			fmt.Fprintln(f.Writer, "No items found.")
 			return
 		}
-		// Table header
-		fmt.Fprintf(f.Writer, "%-10s %-8s %-8s %-10s %s\n", "ID", "TYPE", "STATUS", "PRIORITY", "TITLE")
-		fmt.Fprintf(f.Writer, "%-10s %-8s %-8s %-10s %s\n", "---", "----", "------", "--------", "-----")
+		// Column widths sized for visible content
+		idW, typeW, statusW, priW := 10, 12, 14, 12
+
+		// Header
+		fmt.Fprintf(f.Writer, "%s %s %s %s %s\n",
+			styleHeader.Width(idW).Render("ID"),
+			styleHeader.Width(typeW).Render("TYPE"),
+			styleHeader.Width(statusW).Render("STATUS"),
+			styleHeader.Width(priW).Render("PRIORITY"),
+			styleHeader.Render("TITLE"),
+		)
+		fmt.Fprintln(f.Writer, styleDivider.Render(strings.Repeat("─", 70)))
+
 		for _, item := range items {
-			blocked := ""
-			if item.Blocked != nil {
-				blocked = " [BLOCKED]"
+			isDone := item.Status == "done" || item.Status == "cancelled"
+			idCell := lipgloss.NewStyle().Width(idW).Render(item.ID)
+			typeCell := lipgloss.NewStyle().Width(typeW).Render(RenderType(string(item.Type)))
+			statusCell := lipgloss.NewStyle().Width(statusW).Render(RenderStatus(item.Status, item.Blocked != nil))
+			priCell := lipgloss.NewStyle().Width(priW).Render(RenderPriority(item.Priority))
+			row := fmt.Sprintf("%s %s %s %s %s", idCell, typeCell, statusCell, priCell, item.Title)
+			if isDone {
+				row = styleFaint.Render(row)
 			}
-			fmt.Fprintf(f.Writer, "%-10s %-8s %-8s %-10s %s%s\n",
-				item.ID, item.Type, item.Status, item.Priority, item.Title, blocked)
+			fmt.Fprintln(f.Writer, row)
 		}
 		fmt.Fprintf(f.Writer, "\n%d item(s)\n", len(items))
 	}

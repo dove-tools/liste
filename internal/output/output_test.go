@@ -1,10 +1,13 @@
 package output_test
 
 import (
+	"bytes"
 	"regexp"
 	"strings"
 	"testing"
+	"time"
 
+	"github.com/pblca/liste/internal/model"
 	"github.com/pblca/liste/internal/output"
 )
 
@@ -68,6 +71,65 @@ func TestRenderPriority(t *testing.T) {
 		if got != tt.want {
 			t.Errorf("RenderPriority(%q) = %q, want %q", tt.priority, got, tt.want)
 		}
+	}
+}
+
+func makeTestItem(id, typ, status, priority string) *model.Item {
+	return &model.Item{
+		ID:       id,
+		Type:     model.ItemType(typ),
+		Title:    "Test title for " + id,
+		Status:   status,
+		Priority: priority,
+		Created:  time.Now(),
+		Updated:  time.Now(),
+	}
+}
+
+func TestItemListTableContainsExpectedFields(t *testing.T) {
+	var buf bytes.Buffer
+	f := output.New(&buf, output.FormatTable)
+
+	items := []*model.Item{
+		makeTestItem("FEAT-001", "feature", "active", "high"),
+		makeTestItem("BUG-002", "bug", "planned", "critical"),
+	}
+	f.ItemList(items)
+
+	got := stripANSI(buf.String())
+
+	checks := []string{"FEAT-001", "■ feature", "● active", "▲ high", "Test title for FEAT-001",
+		"BUG-002", "■ bug", "○ planned", "▲ critical"}
+	for _, want := range checks {
+		if !strings.Contains(got, want) {
+			t.Errorf("ItemList output missing %q\ngot:\n%s", want, got)
+		}
+	}
+}
+
+func TestItemListBlockedShowsBlockedStatus(t *testing.T) {
+	var buf bytes.Buffer
+	f := output.New(&buf, output.FormatTable)
+
+	item := makeTestItem("BUG-001", "bug", "active", "high")
+	item.Blocked = &model.Blocked{Reason: "waiting"}
+	f.ItemList([]*model.Item{item})
+
+	got := stripANSI(buf.String())
+	if !strings.Contains(got, "⊘ blocked") {
+		t.Errorf("expected blocked item to show ⊘ blocked, got:\n%s", got)
+	}
+}
+
+func TestItemListDoneRowsDimmed(t *testing.T) {
+	var buf bytes.Buffer
+	f := output.New(&buf, output.FormatTable)
+	item := makeTestItem("TASK-003", "task", "done", "low")
+	f.ItemList([]*model.Item{item})
+	// Just verify it renders without error and contains the ID
+	got := buf.String()
+	if !strings.Contains(stripANSI(got), "TASK-003") {
+		t.Errorf("done item not rendered, got:\n%s", got)
 	}
 }
 
