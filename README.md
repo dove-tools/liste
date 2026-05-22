@@ -6,17 +6,30 @@ Items are stored as individual markdown files with YAML frontmatter in a `.liste
 
 ## Install
 
-### From source
+### Homebrew (macOS / Linux)
+
+```bash
+brew install pufferhaus/liste/liste
+```
+
+### Scoop (Windows)
+
+```bash
+scoop bucket add liste https://github.com/pufferhaus/liste
+scoop install liste
+```
+
+### Go install
 
 ```bash
 go install github.com/pufferhaus/liste@latest
 ```
 
-### From release binaries
+### Release binaries
 
 Download the latest binary for your platform from [Releases](https://github.com/pufferhaus/liste/releases).
 
-### Build locally
+### Build from source
 
 ```bash
 git clone https://github.com/pufferhaus/liste.git
@@ -126,7 +139,7 @@ liste roadmap   # aggregates all projects
 |---------|-------------|
 | `move <id> <status>` | Transition item status |
 | `block <id> [reason]` | Mark item blocked |
-| `promote <id>` | Move item to next status |
+| `promote <id> <type>` | Re-type an item (e.g. idea → feature) |
 | `next` | Show next items to work on |
 | `ready` | Show items with resolved dependencies |
 | `blocked` | Show all blocked items |
@@ -151,7 +164,7 @@ liste roadmap   # aggregates all projects
 | `progress` | Completion progress |
 | `projects` | List discovered projects |
 | `context` | Compact AI agent summary |
-| `diff` | Show changes since last check |
+| `diff --since <date>` | Show changes since a given date |
 
 ### Editing
 
@@ -162,13 +175,24 @@ liste roadmap   # aggregates all projects
 | `search <query>` | Full-text search |
 | `batch` | Read commands from stdin |
 
+### Skills & TUI
+
+| Command | Description |
+|---------|-------------|
+| `skills list` | List all bundled Claude Code skills |
+| `skills install` | Install skills to `~/.claude` |
+| `liste -i` | Launch interactive TUI (requires a TTY) |
+
 ## Output Modes
 
 All commands support:
 
 - `--json` — Machine-readable JSON output
 - `--quiet` — Minimal output (IDs only)
-- Default — Human-readable table format
+- Default — Human-readable table format with lipgloss styling
+- `-i` / `--interactive` — Full-screen TUI (requires TTY)
+
+`liste add` launched without arguments opens an interactive form when connected to a TTY.
 
 ## File Format
 
@@ -245,6 +269,22 @@ defaults:
 - **`liste batch`** — Pipe multiple commands via stdin for atomic multi-mutation
 - **`liste next`** — Priority-sorted queue of what to work on next
 - **No interactive prompts** — Every operation is fully non-interactive
+
+### Claude Code Skills
+
+liste ships 19 Claude Code skills that teach agents how to use every command. Install them once:
+
+```bash
+liste skills install
+```
+
+Then add to your `.claude/CLAUDE.md` or `~/.claude/CLAUDE.md`:
+
+```
+At the start of every session, invoke the liste:session-start skill.
+```
+
+Available skills: `/liste-add-feature`, `/liste-add-bug`, `/liste-add-task`, `/liste-add-idea`, `/liste-add-epic`, `/liste-start`, `/liste-done`, `/liste-block`, `/liste-promote`, `/liste-link`, `/liste-find`, `/liste-append`, `/liste-set`, `/liste-status`, `/liste-next`, `/liste-progress`, `/liste-diff`, `/liste-batch`, `/liste-session-start`
 
 ## License
 
