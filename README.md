@@ -4,6 +4,8 @@ A portable CLI tool for managing project roadmaps as structured markdown files. 
 
 Items are stored as individual markdown files with YAML frontmatter in a `.liste/` directory. No database, no server, no lock-in — just files in your repo.
 
+![liste demo](demo/liste-demo.gif)
+
 ## Install
 
 ### Homebrew (macOS / Linux)
