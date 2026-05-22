@@ -1,0 +1,8 @@
+{
+  "name": "liste",
+  "description": "Claude Code skills for the liste CLI roadmap tracker. Teaches agents to record bugs, track progress, manage dependencies, and keep roadmaps current during development.",
+  "author": {
+    "name": "pblca",
+    "url": "https://github.com/pblca/liste"
+  }
+}
