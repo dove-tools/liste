@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "liste",
-  "description": "Claude Code skills for the liste CLI roadmap tracker",
+  "description": "Portable CLI roadmap tracker for humans and AI agents. 19 skills covering the full liste interface.",
   "owner": {
     "name": "pufferhaus",
     "url": "https://github.com/pufferhaus/liste"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "liste",
-      "description": "Skills for managing projects with the liste CLI",
+      "description": "19 Claude Code skills for the liste CLI roadmap tracker — add, track, link, search, and manage project items from within Claude Code.",
       "source": "./",
       "category": "productivity"
     }

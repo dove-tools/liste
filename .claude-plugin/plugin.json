@@ -1,8 +1,20 @@
 {
   "name": "liste",
-  "description": "Claude Code skills for the liste CLI roadmap tracker. Teaches agents to record bugs, track progress, manage dependencies, and keep roadmaps current during development.",
+  "description": "Claude Code skills for the liste CLI roadmap tracker. 19 skills covering the full liste interface for managing project roadmaps as markdown files.",
+  "version": "0.1.0",
   "author": {
     "name": "pufferhaus",
-    "url": "https://github.com/pufferhaus/liste"
-  }
+    "url": "https://github.com/pufferhaus"
+  },
+  "homepage": "https://github.com/pufferhaus/liste",
+  "repository": "https://github.com/pufferhaus/liste",
+  "license": "MIT",
+  "keywords": [
+    "roadmap",
+    "project-management",
+    "tracker",
+    "skills",
+    "cli",
+    "ai-agents"
+  ]
 }
