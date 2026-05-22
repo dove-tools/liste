@@ -87,14 +87,16 @@ func installSkills(claudeRoot, version string) error {
 	if err := os.MkdirAll(pluginDir, 0755); err != nil {
 		return fmt.Errorf("creating .claude-plugin dir: %w", err)
 	}
-	pluginJSON := `{
+	pluginJSON := fmt.Sprintf(`{
   "name": "liste",
+  "version": "%s",
   "description": "Claude Code skills for the liste CLI roadmap tracker.",
   "author": {
     "name": "pufferhaus",
     "url": "https://github.com/pufferhaus/liste"
-  }
-}`
+  },
+  "skills": ["./skills/"]
+}`, version)
 	if err := os.WriteFile(filepath.Join(pluginDir, "plugin.json"), []byte(pluginJSON), 0644); err != nil {
 		return fmt.Errorf("writing plugin.json: %w", err)
 	}

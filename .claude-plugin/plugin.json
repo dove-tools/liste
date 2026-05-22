@@ -16,5 +16,6 @@
     "skills",
     "cli",
     "ai-agents"
-  ]
+  ],
+  "skills": ["./skills/"]
 }
