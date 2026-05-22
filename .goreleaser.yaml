@@ -48,14 +48,6 @@ brews:
     install: |
       bin.install "liste"
     caveats: |
-        ██╗     ██╗███████╗████████╗███████╗
-        ██║     ██║██╔════╝╚══██╔══╝██╔════╝
-        ██║     ██║███████╗   ██║   █████╗
-        ██║     ██║╚════██║   ██║   ██╔══╝
-        ███████╗██║███████║   ██║   ███████╗
-        ╚══════╝╚═╝╚══════╝   ╚═╝   ╚══════╝
-        portable cli roadmap tracker
-
       Install Claude Code skills for AI agents:
         liste skills install
 
