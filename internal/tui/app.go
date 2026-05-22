@@ -42,6 +42,12 @@ type blockInputModel struct {
 	itemID string
 }
 
+// viewLoadedMsg carries a lazily-initialized view back into the Update loop.
+type viewLoadedMsg struct {
+	name string
+	view tea.Model
+}
+
 // ActiveTab returns the current active tab index (for tests).
 func (m AppModel) ActiveTab() int { return m.activeTab }
 
@@ -156,6 +162,10 @@ func (m AppModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, m.ensureViewLoaded()
 		}
 
+	case viewLoadedMsg:
+		m.viewMap[msg.name] = msg.view
+		return m, nil
+
 	case views.ItemSelectedMsg:
 		overlay := NewDetailModel(msg.Item, m.width, m.height)
 		m.overlay = &overlay
@@ -234,15 +244,14 @@ func (m AppModel) ensureViewLoaded() tea.Cmd {
 	if _, ok := m.viewMap[name]; ok {
 		return nil
 	}
-	// Capture for closure
 	width, height := m.width, m.height
+	appCopy := m // m has the store pointer; initView uses m.store
 	return func() tea.Msg {
-		view, err := m.initView(name, width, height)
+		view, err := appCopy.initView(name, width, height)
 		if err != nil {
 			return nil
 		}
-		m.viewMap[name] = view
-		return nil
+		return viewLoadedMsg{name: name, view: view}
 	}
 }
 
