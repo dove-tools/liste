@@ -6,8 +6,94 @@ import (
 	"io"
 	"strings"
 
+	"github.com/charmbracelet/lipgloss"
 	"github.com/pblca/liste/internal/model"
 )
+
+var (
+	styleStatusActive    = lipgloss.NewStyle().Foreground(lipgloss.Color("#00b894"))
+	styleStatusBlocked   = lipgloss.NewStyle().Foreground(lipgloss.Color("#e17055"))
+	styleStatusPlanned   = lipgloss.NewStyle().Foreground(lipgloss.Color("#74b9ff"))
+	styleStatusDone      = lipgloss.NewStyle().Foreground(lipgloss.Color("#6c7a89")).Faint(true)
+	styleStatusCancelled = lipgloss.NewStyle().Foreground(lipgloss.Color("#6c7a89")).Faint(true)
+
+	styleTypeFeature = lipgloss.NewStyle().Foreground(lipgloss.Color("#a29bfe"))
+	styleTypeBug     = lipgloss.NewStyle().Foreground(lipgloss.Color("#ff7675"))
+	styleTypeTask    = lipgloss.NewStyle().Foreground(lipgloss.Color("#81ecec"))
+	styleTypeIdea    = lipgloss.NewStyle().Foreground(lipgloss.Color("#ffeaa7"))
+	styleTypeEpic    = lipgloss.NewStyle().Bold(true)
+
+	stylePriCritical = lipgloss.NewStyle().Foreground(lipgloss.Color("#d63031")).Bold(true)
+	stylePriHigh     = lipgloss.NewStyle().Foreground(lipgloss.Color("#fdcb6e"))
+	stylePriMedium   = lipgloss.NewStyle()
+	stylePriLow      = lipgloss.NewStyle().Faint(true)
+
+	styleHeader  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("#a8b2d8"))
+	styleFaint   = lipgloss.NewStyle().Faint(true)
+	stylePhase   = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("#cdd6f4"))
+	styleDivider = lipgloss.NewStyle().Foreground(lipgloss.Color("#313244"))
+)
+
+// RenderStatus returns a styled status string (e.g. "● active", "⊘ blocked").
+// Safe to call even without a terminal — lipgloss respects NO_COLOR.
+func RenderStatus(status string, blocked bool) string {
+	if blocked {
+		return styleStatusBlocked.Render("⊘ blocked")
+	}
+	switch status {
+	case "active":
+		return styleStatusActive.Render("● active")
+	case "planned":
+		return styleStatusPlanned.Render("○ planned")
+	case "done":
+		return styleStatusDone.Render("✓ done")
+	case "cancelled":
+		return styleStatusCancelled.Render("✗ cancelled")
+	default:
+		return status
+	}
+}
+
+// RenderType returns a styled type string (e.g. "■ feature").
+func RenderType(t string) string {
+	switch t {
+	case "feature":
+		return styleTypeFeature.Render("■ feature")
+	case "bug":
+		return styleTypeBug.Render("■ bug")
+	case "task":
+		return styleTypeTask.Render("■ task")
+	case "idea":
+		return styleTypeIdea.Render("■ idea")
+	case "epic":
+		return styleTypeEpic.Render("■ epic")
+	default:
+		return "■ " + t
+	}
+}
+
+// RenderPriority returns a styled priority string (e.g. "▲ high").
+func RenderPriority(p string) string {
+	switch p {
+	case "critical":
+		return stylePriCritical.Render("▲ critical")
+	case "high":
+		return stylePriHigh.Render("▲ high")
+	case "medium":
+		return stylePriMedium.Render("▸ medium")
+	case "low":
+		return stylePriLow.Render("▽ low")
+	default:
+		return p
+	}
+}
+
+// RenderPhaseHeader returns a styled phase header line for roadmap output.
+func RenderPhaseHeader(phase int, status string, done, total int) string {
+	label := fmt.Sprintf("PHASE %d  %s  %d/%d", phase, status, done, total)
+	divider := styleDivider.Render(strings.Repeat("─", 60))
+	return stylePhase.Render(label) + "\n" + divider
+}
 
 // Format represents the output format.
 type Format int
