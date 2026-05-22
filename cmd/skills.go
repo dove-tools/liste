@@ -40,6 +40,7 @@ func init() {
 }
 
 func runSkillsInstall(cmd *cobra.Command, args []string) error {
+	printBanner(buildVersion)
 	home, err := os.UserHomeDir()
 	if err != nil {
 		return fmt.Errorf("finding home directory: %w", err)

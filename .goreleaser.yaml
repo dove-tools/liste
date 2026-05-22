@@ -47,6 +47,22 @@ brews:
       system "#{bin}/liste", "version"
     install: |
       bin.install "liste"
+    caveats: |
+        ██╗     ██╗███████╗████████╗███████╗
+        ██║     ██║██╔════╝╚══██╔══╝██╔════╝
+        ██║     ██║███████╗   ██║   █████╗
+        ██║     ██║╚════██║   ██║   ██╔══╝
+        ███████╗██║███████║   ██║   ███████╗
+        ╚══════╝╚═╝╚══════╝   ╚═╝   ╚══════╝
+        portable cli roadmap tracker
+
+      Install Claude Code skills for AI agents:
+        liste skills install
+
+      Then add to ~/.claude/CLAUDE.md:
+        At the start of every session, invoke the liste:session-start skill.
+
+      Docs: https://github.com/pufferhaus/liste
 
 scoops:
   - repository:

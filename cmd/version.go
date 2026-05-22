@@ -33,6 +33,9 @@ func init() {
 }
 
 func runVersion(cmd *cobra.Command, args []string) error {
+	if !flagJSON && !flagQuiet {
+		printBanner(buildVersion)
+	}
 	if flagJSON {
 		enc := json.NewEncoder(os.Stdout)
 		enc.SetIndent("", "  ")
