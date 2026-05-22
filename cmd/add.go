@@ -126,6 +126,12 @@ func runAddInteractive(s *store.Store) error {
 		tagsStr  string
 	)
 
+	priorityOpts := make([]huh.Option[string], len(cfg.Priorities))
+	for i, p := range cfg.Priorities {
+		label := strings.ToUpper(p[:1]) + p[1:]
+		priorityOpts[i] = huh.NewOption(label, p)
+	}
+
 	form := huh.NewForm(
 		huh.NewGroup(
 			huh.NewSelect[string]().
@@ -149,12 +155,7 @@ func runAddInteractive(s *store.Store) error {
 				}),
 			huh.NewSelect[string]().
 				Title("Priority").
-				Options(
-					huh.NewOption("Critical", "critical"),
-					huh.NewOption("High", "high"),
-					huh.NewOption("Medium", "medium"),
-					huh.NewOption("Low", "low"),
-				).
+				Options(priorityOpts...).
 				Value(&priority),
 			huh.NewInput().
 				Title("Phase (optional, positive integer)").
