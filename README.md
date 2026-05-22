@@ -27,6 +27,15 @@ Items are stored as individual markdown files with YAML frontmatter in a `.liste
 brew install pufferhaus/liste/liste
 ```
 
+### Claude Code plugin
+
+Install directly as a Claude Code plugin — no binary required, skills available immediately:
+
+```
+/plugin marketplace add pufferhaus/liste
+/plugin install liste@liste
+```
+
 ### Go install
 
 ```bash
