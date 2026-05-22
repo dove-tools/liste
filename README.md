@@ -10,6 +10,11 @@
   portable cli roadmap tracker · for humans and AI agents
 ```
 
+[![CI](https://github.com/pufferhaus/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/pufferhaus/liste/actions/workflows/ci.yaml)
+[![Release](https://img.shields.io/github/v/release/pufferhaus/liste)](https://github.com/pufferhaus/liste/releases/latest)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pufferhaus/liste)](https://goreportcard.com/report/github.com/pufferhaus/liste)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A portable CLI tool for managing project roadmaps as structured markdown files. Designed for both humans and AI agents.
 
 Items are stored as individual markdown files with YAML frontmatter in a `.liste/` directory. No database, no server, no lock-in — just files in your repo.
