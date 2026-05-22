@@ -2,10 +2,15 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 	"strings"
 	"time"
 
+	"github.com/charmbracelet/huh"
+	"github.com/mattn/go-isatty"
 	"github.com/pblca/liste/internal/model"
+	"github.com/pblca/liste/internal/store"
 	"github.com/spf13/cobra"
 )
 
@@ -19,9 +24,17 @@ var (
 var addCmd = &cobra.Command{
 	Use:   "add <type> <title>",
 	Short: "Create a new item",
-	Long:  "Create a new item of the given type (feature, bug, idea, task, epic).",
-	Args:  cobra.MinimumNArgs(2),
-	RunE:  runAdd,
+	Long:  "Create a new item of the given type (feature, bug, idea, task, epic). Run without arguments in a terminal to use an interactive form.",
+	Args: func(cmd *cobra.Command, args []string) error {
+		if len(args) == 0 {
+			return nil // TTY-gated form handled in RunE
+		}
+		if len(args) < 2 {
+			return fmt.Errorf("requires at least 2 arg(s) (<type> <title>), received %d", len(args))
+		}
+		return nil
+	},
+	RunE: runAdd,
 }
 
 func init() {
@@ -36,6 +49,13 @@ func runAdd(cmd *cobra.Command, args []string) error {
 	s, err := getStore()
 	if err != nil {
 		return err
+	}
+
+	if len(args) == 0 {
+		if !isatty.IsTerminal(os.Stdin.Fd()) {
+			return fmt.Errorf("'liste add' requires <type> and <title> arguments when not running in a terminal")
+		}
+		return runAddInteractive(s)
 	}
 
 	typeStr := args[0]
@@ -56,7 +76,6 @@ func runAdd(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	// Apply optional overrides
 	changed := false
 	if addPriority != "" {
 		if !cfg.IsValidPriority(addPriority) {
@@ -80,6 +99,106 @@ func runAdd(cmd *cobra.Command, args []string) error {
 		p := addPhase
 		item.Phase = &p
 		changed = true
+	}
+	if changed {
+		item.Updated = time.Now()
+		if err := s.WriteItem(item); err != nil {
+			return err
+		}
+	}
+
+	f := getFormatter()
+	f.ItemCreated(item)
+	return nil
+}
+
+func runAddInteractive(s *store.Store) error {
+	cfg, err := s.ReadConfig()
+	if err != nil {
+		return err
+	}
+
+	var (
+		itemType string = "feature"
+		title    string
+		priority string = cfg.Defaults.Priority
+		phaseStr string
+		tagsStr  string
+	)
+
+	form := huh.NewForm(
+		huh.NewGroup(
+			huh.NewSelect[string]().
+				Title("Type").
+				Options(
+					huh.NewOption("Feature", "feature"),
+					huh.NewOption("Bug", "bug"),
+					huh.NewOption("Task", "task"),
+					huh.NewOption("Idea", "idea"),
+					huh.NewOption("Epic", "epic"),
+				).
+				Value(&itemType),
+			huh.NewInput().
+				Title("Title").
+				Value(&title).
+				Validate(func(s string) error {
+					if strings.TrimSpace(s) == "" {
+						return fmt.Errorf("title is required")
+					}
+					return nil
+				}),
+			huh.NewSelect[string]().
+				Title("Priority").
+				Options(
+					huh.NewOption("Critical", "critical"),
+					huh.NewOption("High", "high"),
+					huh.NewOption("Medium", "medium"),
+					huh.NewOption("Low", "low"),
+				).
+				Value(&priority),
+			huh.NewInput().
+				Title("Phase (optional, positive integer)").
+				Value(&phaseStr),
+			huh.NewInput().
+				Title("Tags (optional, comma-separated)").
+				Value(&tagsStr),
+		),
+	)
+
+	if err := form.Run(); err != nil {
+		return err
+	}
+
+	t, _ := model.ParseItemType(itemType)
+	item, err := s.CreateItem(t, strings.TrimSpace(title), cfg)
+	if err != nil {
+		return err
+	}
+
+	changed := false
+	if priority != cfg.Defaults.Priority {
+		item.Priority = priority
+		changed = true
+	}
+	if phaseStr != "" {
+		p, err := strconv.Atoi(strings.TrimSpace(phaseStr))
+		if err != nil || p < 1 {
+			return fmt.Errorf("phase must be a positive integer, got %q", phaseStr)
+		}
+		item.Phase = &p
+		changed = true
+	}
+	if tagsStr != "" {
+		var tags []string
+		for _, tag := range strings.Split(tagsStr, ",") {
+			if t := strings.TrimSpace(tag); t != "" {
+				tags = append(tags, t)
+			}
+		}
+		if len(tags) > 0 {
+			item.Tags = tags
+			changed = true
+		}
 	}
 	if changed {
 		item.Updated = time.Now()
