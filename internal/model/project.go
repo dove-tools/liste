@@ -16,13 +16,32 @@ type Config struct {
 	Blocked    bool     `yaml:"blocked"`
 	Types      []string `yaml:"types"`
 	Priorities []string `yaml:"priorities"`
-	Defaults   Defaults `yaml:"defaults"`
+	Defaults   Defaults  `yaml:"defaults"`
+	TUI        TUIConfig `yaml:"tui,omitempty"`
 }
 
 // Defaults represents default values for new items.
 type Defaults struct {
 	Status   string `yaml:"status"`
 	Priority string `yaml:"priority"`
+}
+
+// TUIConfig holds configuration for the interactive TUI (liste -i).
+type TUIConfig struct {
+	DefaultView string   `yaml:"default_view"` // list | roadmap | blocked | next | search
+	Views       []string `yaml:"views"`         // ordered list of enabled views
+}
+
+// Resolved returns TUIConfig with defaults applied when fields are empty.
+func (c *TUIConfig) Resolved() TUIConfig {
+	r := *c
+	if r.DefaultView == "" {
+		r.DefaultView = "list"
+	}
+	if len(r.Views) == 0 {
+		r.Views = []string{"list", "roadmap", "blocked", "next", "search"}
+	}
+	return r
 }
 
 // DefaultConfig returns a sensible default configuration.
