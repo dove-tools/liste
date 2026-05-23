@@ -164,10 +164,22 @@ func (m AppModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m.updateBlockInput(msg)
 	}
 
-	// CloseDetailMsg closes whichever overlay is open.
+	// CloseDetailMsg and ItemEditMsg must be intercepted before the overlay
+	// routing — the overlay swallows all messages when open, so these would
+	// never reach the switch below without early checks.
 	if _, ok := msg.(CloseDetailMsg); ok {
 		m.overlay = nil
 		m.editOverlay = nil
+		return m, nil
+	}
+
+	if editMsg, ok := msg.(views.ItemEditMsg); ok {
+		m.overlay = nil
+		if m.config != nil {
+			edit := NewEditModel(editMsg.Item, m.config, m.width, m.height)
+			m.editOverlay = &edit
+			return m, edit.Init()
+		}
 		return m, nil
 	}
 
@@ -233,15 +245,6 @@ func (m AppModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case views.ItemSelectedMsg:
 		overlay := NewDetailModel(msg.Item, m.width, m.height)
 		m.overlay = &overlay
-		return m, nil
-
-	case views.ItemEditMsg:
-		m.overlay = nil
-		if m.config != nil {
-			edit := NewEditModel(msg.Item, m.config, m.width, m.height)
-			m.editOverlay = &edit
-			return m, edit.Init()
-		}
 		return m, nil
 
 	case ItemSavedMsg:
