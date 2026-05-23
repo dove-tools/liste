@@ -7,26 +7,32 @@ description: >
 
 # liste Status Overview
 
+## Compact AI-agent summary (preferred)
+
+```bash
+liste context
+```
+
+Purpose-built for LLM consumption — capped output, all the signal, none of the table noise.
+
 ## Phase overview
 
 ```bash
-liste roadmap
+liste roadmap --json
 ```
 
 ## Status counts
 
 ```bash
-liste status
+liste status --json
 ```
+
+Returns `by_status` map and an `items` array.
 
 ## Blocked items
 
 ```bash
-liste blocked
+liste blocked --json
 ```
 
-## Compact AI-agent summary
-
-```bash
-liste context
-```
+Drop `--json` from any of the above if you're going to relay the output verbatim to the user.

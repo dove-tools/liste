@@ -7,11 +7,23 @@ description: >
 
 # Find in liste
 
-Always search before creating:
+Always search before creating.
+
+## Quick check (IDs only)
 
 ```bash
-liste search "<keywords>"
+liste search "<keywords>" --quiet
 ```
+
+Returns bare IDs — minimum tokens, ideal for "does anything match?"
+
+## Full search with metadata
+
+```bash
+liste search "<keywords>" --json
+```
+
+Returns structured JSON with `id`, `type`, `title`, `status`, `priority`. Use when you need to fuzzy-match against titles or filter by type before deciding to update vs. create.
 
 **Match found** → update instead of creating a duplicate:
 ```bash
@@ -25,10 +37,10 @@ liste set <id> phase <number>
 ## Filtered browsing
 
 ```bash
-liste list --type bug
-liste list --status active
-liste list --priority critical
-liste list --tag <tag>
+liste list --type bug --json
+liste list --status active --json
+liste list --priority critical --json
+liste list --tag <tag> --json
 ```
 
 ## View hierarchy

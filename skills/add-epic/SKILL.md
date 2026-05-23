@@ -11,18 +11,30 @@ description: >
 ## Step 1: Search for duplicates
 
 ```bash
-liste search "<keywords from the epic>"
+liste search "<keywords from the epic>" --quiet
 ```
 
-## Step 2: Add the epic
+## Step 2: Add the epic and capture the ID
 
 ```bash
-liste add epic "<concise title: the initiative name>"
+ID=$(liste add epic "<concise title: the initiative name>" --quiet)
 ```
 
 ## Step 3: Assign phase and link children
 
 ```bash
-liste set <new-id> phase <number>
-liste link <child-id> child-of <epic-id>   # repeat for each child item
+liste set $ID phase <number>
+liste link <child-id> child-of $ID   # repeat for each child item
+```
+
+## One-shot via batch
+
+```bash
+liste batch <<EOF
+add epic "Auth platform rewrite"
+set EPIC-001 phase 2
+link FEAT-003 child-of EPIC-001
+link FEAT-004 child-of EPIC-001
+link TASK-010 child-of EPIC-001
+EOF
 ```

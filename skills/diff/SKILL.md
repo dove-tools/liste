@@ -8,8 +8,17 @@ description: >
 # liste Changes Since Last Check
 
 ```bash
-liste diff
+liste diff --json
 ```
 
-Shows items created, updated, or status-changed since the last time `liste diff`
-was run. Useful for session hand-offs and progress summaries.
+Returns `created`, `updated`, and `completed` arrays of items changed since the last `liste diff` run. Use the structured output to summarize activity for the user.
+
+Drop `--json` if you intend to relay output verbatim.
+
+## Since a specific date
+
+```bash
+liste diff --since 2026-05-01 --json
+```
+
+Useful for session hand-offs and progress summaries.

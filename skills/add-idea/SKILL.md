@@ -11,15 +11,15 @@ description: >
 ## Step 1: Search for duplicates
 
 ```bash
-liste search "<keywords from the idea>"
+liste search "<keywords from the idea>" --quiet
 ```
 
 If a matching item exists: run `liste append <id> "<additional thoughts>"` and stop.
 
-## Step 2: Add the idea
+## Step 2: Add the idea and capture the ID
 
 ```bash
-liste add idea "<concise title: what the idea is>"
+ID=$(liste add idea "<concise title: what the idea is>" --quiet)
 ```
 
 Ideas start with status `idea` by default. No further metadata required.
@@ -27,5 +27,5 @@ Ideas start with status `idea` by default. No further metadata required.
 ## Optional: Add context
 
 ```bash
-liste append <new-id> "<why this is interesting, constraints to keep in mind>"
+liste append $ID "<why this is interesting, constraints to keep in mind>"
 ```

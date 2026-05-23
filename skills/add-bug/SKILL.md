@@ -10,21 +10,25 @@ description: >
 ## Step 1: Search for duplicates
 
 ```bash
-liste search "<keywords from the bug>"
+liste search "<keywords from the bug>" --quiet
 ```
+
+`--quiet` returns bare IDs. Use `--json` instead if you need titles and metadata for fuzzy matching.
 
 If a matching bug exists: run `liste append <existing-id> "<additional context>"` and stop.
 
-## Step 2: Add the bug
+## Step 2: Add the bug and capture the ID
 
 ```bash
-liste add bug "<concise title: what is wrong>"
+ID=$(liste add bug "<concise title: what is wrong>" --quiet)
 ```
+
+`--quiet` prints only the new ID — assign it to a shell variable for the chained operations below.
 
 ## Step 3: Set priority
 
 ```bash
-liste set <new-id> priority <level>
+liste set $ID priority <level>
 ```
 
 - `critical` — data loss, security, complete breakage, blocks all work
@@ -35,6 +39,18 @@ liste set <new-id> priority <level>
 ## Step 4: Link if related
 
 ```bash
-liste link <bug-id> blocks <item-id>      # if it blocks another item
-liste link <bug-id> relates-to <item-id>  # if generally related
+liste link $ID blocks <item-id>      # if it blocks another item
+liste link $ID relates-to <item-id>  # if generally related
+```
+
+## One-shot via batch
+
+Three or more mutations? Use `liste batch`:
+
+```bash
+liste batch <<EOF
+add bug "Login timeout on Safari"
+set BUG-001 priority high
+link BUG-001 blocks FEAT-003
+EOF
 ```
