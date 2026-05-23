@@ -27,7 +27,7 @@ brew install pufferhaus/tap/liste
 
 ### Claude Code plugin
 
-Install directly as a Claude Code plugin — no binary required, skills available immediately:
+The plugin ships Claude Code skills that teach Claude how to drive the `liste` CLI. You still need the `liste` binary on your `PATH` (install via Homebrew, Go install, or a release archive — see other sections); the plugin layers AI workflows on top of it.
 
 ```
 /plugin marketplace add pufferhaus/liste
