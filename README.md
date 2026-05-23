@@ -5,7 +5,7 @@
   ██║     ██║╚════██║   ██║   ██╔══╝  
   ███████╗██║███████║   ██║   ███████╗
   ╚══════╝╚═╝╚══════╝   ╚═╝   ╚══════╝
-  portable cli roadmap tracker · for humans and AI agents
+  tasks · in markdown
 ```
 
 [![CI](https://github.com/pufferhaus/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/pufferhaus/liste/actions/workflows/ci.yaml)

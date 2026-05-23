@@ -36,8 +36,7 @@ func printBanner(version string) {
 	infoLines := []string{
 		titleStyle.Render("liste") + "  " + dimStyle.Render(v),
 		dimStyle.Render("──────────────────────────────"),
-		dimStyle.Render("portable cli roadmap tracker"),
-		dimStyle.Render("for humans and AI agents"),
+		dimStyle.Render("tasks · in markdown"),
 		"",
 		accentStyle.Render("○") + dimStyle.Render(" planned  ") +
 			accentStyle.Render("●") + dimStyle.Render(" active  ") +

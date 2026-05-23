@@ -41,7 +41,7 @@ brews:
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     directory: Formula
     homepage: "https://github.com/pufferhaus/liste"
-    description: "Portable CLI roadmap tracker for humans and AI agents"
+    description: "Tasks in markdown — a CLI for humans and AI agents"
     license: "MIT"
     test: |
       system "#{bin}/liste", "version"
@@ -63,7 +63,7 @@ scoops:
       token: "{{ .Env.GITHUB_TOKEN }}"
     directory: bucket
     homepage: "https://github.com/pufferhaus/liste"
-    description: "Portable CLI roadmap tracker for humans and AI agents"
+    description: "Tasks in markdown — a CLI for humans and AI agents"
     license: "MIT"
 
 changelog:
