@@ -1,22 +1,22 @@
 {
-    "version": "1.1.0",
+    "version": "1.1.1",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/pufferhaus/liste/releases/download/v1.1.0/liste_1.1.0_windows_amd64.zip",
+            "url": "https://github.com/pufferhaus/liste/releases/download/v1.1.1/liste_1.1.1_windows_amd64.zip",
             "bin": [
                 "liste.exe"
             ],
-            "hash": "b8311deacd4d33d858be088ef504b792a42d07e7930496c80bb323801d878278"
+            "hash": "7b81419bdc8f430a71325b7708bf350e8bc7d05e5b4099da2d7ef0a17e182df0"
         },
         "arm64": {
-            "url": "https://github.com/pufferhaus/liste/releases/download/v1.1.0/liste_1.1.0_windows_arm64.zip",
+            "url": "https://github.com/pufferhaus/liste/releases/download/v1.1.1/liste_1.1.1_windows_arm64.zip",
             "bin": [
                 "liste.exe"
             ],
-            "hash": "8e49c02d6eedcfe7cf19d67fcf8af56e6ed3b7683cf24683cd066e5b009585e2"
+            "hash": "b284b2ff38ed98d22d27b421057dafe4fc2fa84fbfd20c380f2ef529899d6785"
         }
     },
     "homepage": "https://github.com/pufferhaus/liste",
     "license": "MIT",
-    "description": "Portable CLI roadmap tracker for humans and AI agents"
+    "description": "Tasks in markdown — a CLI for humans and AI agents"
 }
