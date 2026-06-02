@@ -1,8 +1,8 @@
 package resolver
 
 import (
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/store"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/store"
 )
 
 // InverseLink represents a link from another item pointing at a given item.

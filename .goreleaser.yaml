@@ -36,11 +36,11 @@ checksum:
 brews:
   - name: liste
     repository:
-      owner: mull-sys
+      owner: dove-tools
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     directory: Formula
-    homepage: "https://github.com/mull-sys/liste"
+    homepage: "https://github.com/dove-tools/liste"
     description: "Tasks in markdown — a CLI for humans and AI agents"
     license: "MIT"
     test: |
@@ -54,15 +54,15 @@ brews:
       Then add to ~/.claude/CLAUDE.md:
         At the start of every session, invoke the liste:session-start skill.
 
-      Docs: https://github.com/mull-sys/liste
+      Docs: https://github.com/dove-tools/liste
 
 scoops:
   - repository:
-      owner: mull-sys
+      owner: dove-tools
       name: liste
       token: "{{ .Env.GITHUB_TOKEN }}"
     directory: bucket
-    homepage: "https://github.com/mull-sys/liste"
+    homepage: "https://github.com/dove-tools/liste"
     description: "Tasks in markdown — a CLI for humans and AI agents"
     license: "MIT"
 
@@ -76,5 +76,5 @@ changelog:
 
 release:
   github:
-    owner: mull-sys
+    owner: dove-tools
     name: liste

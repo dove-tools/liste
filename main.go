@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/mull-sys/liste/cmd"
+	"github.com/dove-tools/liste/cmd"
 )
 
 // Set via ldflags at build time.

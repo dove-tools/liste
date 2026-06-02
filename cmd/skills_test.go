@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	listeskills "github.com/mull-sys/liste/skills"
+	listeskills "github.com/dove-tools/liste/skills"
 )
 
 func TestSkillsEmbed(t *testing.T) {

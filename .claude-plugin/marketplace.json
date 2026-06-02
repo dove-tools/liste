@@ -3,8 +3,8 @@
   "name": "liste",
   "description": "Portable CLI roadmap tracker for humans and AI agents. 19 skills covering the full liste interface.",
   "owner": {
-    "name": "pufferhaus",
-    "url": "https://github.com/pufferhaus/liste"
+    "name": "dove.tools",
+    "url": "https://github.com/dove-tools/liste"
   },
   "plugins": [
     {

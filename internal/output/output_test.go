@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/output"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/output"
 )
 
 // stripANSI removes ANSI escape codes so we can test text content.

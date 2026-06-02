@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/tui"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/tui"
 )
 
 func TestTabCyclesForward(t *testing.T) {

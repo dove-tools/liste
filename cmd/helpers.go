@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/store"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/store"
 )
 
 // itemWithProject pairs an item with its owning project name.

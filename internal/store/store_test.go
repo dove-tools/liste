@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/mull-sys/liste/internal/model"
+	"github.com/dove-tools/liste/internal/model"
 )
 
 func mustInit(t *testing.T, s *Store, name string) {

@@ -8,9 +8,9 @@
   tasks · in markdown
 ```
 
-[![CI](https://github.com/mull-sys/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/mull-sys/liste/actions/workflows/ci.yaml)
-[![Release](https://img.shields.io/github/v/release/mull-sys/liste)](https://github.com/mull-sys/liste/releases/latest)
-[![Go Report Card](https://goreportcard.com/badge/github.com/mull-sys/liste)](https://goreportcard.com/report/github.com/mull-sys/liste)
+[![CI](https://github.com/dove-tools/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/dove-tools/liste/actions/workflows/ci.yaml)
+[![Release](https://img.shields.io/github/v/release/dove-tools/liste)](https://github.com/dove-tools/liste/releases/latest)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dove-tools/liste)](https://goreportcard.com/report/github.com/dove-tools/liste)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A portable CLI tool for managing project roadmaps as structured markdown files. Designed for both humans and AI agents.
@@ -22,7 +22,7 @@ Items are stored as individual markdown files with YAML frontmatter in a `.liste
 ### Homebrew (macOS / Linux)
 
 ```bash
-brew install mull-sys/tap/liste
+brew install dove-tools/tap/liste
 ```
 
 ### Claude Code plugin
@@ -30,31 +30,31 @@ brew install mull-sys/tap/liste
 The plugin ships Claude Code skills that teach Claude how to drive the `liste` CLI. You still need the `liste` binary on your `PATH` (install via Homebrew, Go install, or a release archive — see other sections); the plugin layers AI workflows on top of it.
 
 ```
-/plugin marketplace add mull-sys/liste
+/plugin marketplace add dove-tools/liste
 /plugin install liste@liste
 ```
 
 ### Go install
 
 ```bash
-go install github.com/mull-sys/liste@latest
+go install github.com/dove-tools/liste@latest
 ```
 
 ### Scoop (Windows)
 
 ```bash
-scoop bucket add liste https://github.com/mull-sys/liste
+scoop bucket add liste https://github.com/dove-tools/liste
 scoop install liste
 ```
 
 ### Release binaries
 
-Download the latest binary for your platform from [Releases](https://github.com/mull-sys/liste/releases).
+Download the latest binary for your platform from [Releases](https://github.com/dove-tools/liste/releases).
 
 ### Build from source
 
 ```bash
-git clone https://github.com/mull-sys/liste.git
+git clone https://github.com/dove-tools/liste.git
 cd liste
 go build -o liste .
 ```

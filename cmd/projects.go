@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/mull-sys/liste/internal/output"
-	"github.com/mull-sys/liste/internal/store"
+	"github.com/dove-tools/liste/internal/output"
+	"github.com/dove-tools/liste/internal/store"
 	"github.com/spf13/cobra"
 )
 

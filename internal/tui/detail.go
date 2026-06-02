@@ -8,9 +8,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/glamour"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/output"
-	"github.com/mull-sys/liste/internal/tui/views"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/output"
+	"github.com/dove-tools/liste/internal/tui/views"
 )
 
 var (
