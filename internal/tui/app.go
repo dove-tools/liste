@@ -8,10 +8,10 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/pufferhaus/liste/internal/discovery"
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/store"
-	"github.com/pufferhaus/liste/internal/tui/views"
+	"github.com/mull-sys/liste/internal/discovery"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/store"
+	"github.com/mull-sys/liste/internal/tui/views"
 )
 
 // tabBarHeight is the number of terminal rows the tab bar occupies.

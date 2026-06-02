@@ -10,7 +10,7 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/pufferhaus/liste/internal/model"
+	"github.com/mull-sys/liste/internal/model"
 )
 
 var (

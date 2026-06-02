@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/pufferhaus/liste/internal/store"
+	"github.com/mull-sys/liste/internal/store"
 )
 
 const roadmapDir = ".liste"

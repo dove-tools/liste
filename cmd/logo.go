@@ -42,7 +42,7 @@ func printBanner(version string) {
 			accentStyle.Render("●") + dimStyle.Render(" active  ") +
 			accentStyle.Render("✓") + dimStyle.Render(" done"),
 		"",
-		dimStyle.Render("github.com/pufferhaus/liste"),
+		dimStyle.Render("github.com/mull-sys/liste"),
 	}
 
 	left := logoStyle.Render(strings.Join(logoLines, "\n"))

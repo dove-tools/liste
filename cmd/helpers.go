@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/store"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/store"
 )
 
 // itemWithProject pairs an item with its owning project name.

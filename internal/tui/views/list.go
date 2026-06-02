@@ -3,8 +3,8 @@ package views
 import (
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/store"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/store"
 )
 
 // ItemSelectedMsg is sent when the user presses enter on an item.

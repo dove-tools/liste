@@ -6,7 +6,7 @@ import (
 	"os"
 	"sort"
 
-	"github.com/pufferhaus/liste/internal/model"
+	"github.com/mull-sys/liste/internal/model"
 	"github.com/spf13/cobra"
 )
 

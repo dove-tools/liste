@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	listeskills "github.com/pufferhaus/liste/skills"
+	listeskills "github.com/mull-sys/liste/skills"
 )
 
 func TestSkillsEmbed(t *testing.T) {
