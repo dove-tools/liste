@@ -8,9 +8,9 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/x/exp/teatest"
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/store"
-	"github.com/mull-sys/liste/internal/tui"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/store"
+	"github.com/dove-tools/liste/internal/tui"
 )
 
 const (

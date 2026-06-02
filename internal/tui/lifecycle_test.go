@@ -6,7 +6,7 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/x/exp/teatest"
-	"github.com/mull-sys/liste/internal/tui"
+	"github.com/dove-tools/liste/internal/tui"
 )
 
 // TestQuitFromListWithQ verifies pressing 'q' on the top-level list view

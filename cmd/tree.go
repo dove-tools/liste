@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mull-sys/liste/internal/model"
-	"github.com/mull-sys/liste/internal/store"
+	"github.com/dove-tools/liste/internal/model"
+	"github.com/dove-tools/liste/internal/store"
 
 	"github.com/spf13/cobra"
 )

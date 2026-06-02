@@ -1,4 +1,4 @@
-module github.com/mull-sys/liste
+module github.com/dove-tools/liste
 
 go 1.26
 

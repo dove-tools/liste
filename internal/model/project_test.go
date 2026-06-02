@@ -3,7 +3,7 @@ package model_test
 import (
 	"testing"
 
-	"github.com/mull-sys/liste/internal/model"
+	"github.com/dove-tools/liste/internal/model"
 )
 
 func TestTUIConfigResolvedDefaults(t *testing.T) {

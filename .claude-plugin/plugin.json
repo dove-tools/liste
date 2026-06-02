@@ -3,11 +3,11 @@
   "description": "Claude Code skills for the liste CLI roadmap tracker. 19 skills covering the full liste interface for managing project roadmaps as markdown files.",
   "version": "1.1.2",
   "author": {
-    "name": "pufferhaus",
-    "url": "https://github.com/pufferhaus"
+    "name": "dove.tools",
+    "url": "https://github.com/dove-tools"
   },
-  "homepage": "https://github.com/pufferhaus/liste",
-  "repository": "https://github.com/pufferhaus/liste",
+  "homepage": "https://github.com/dove-tools/liste",
+  "repository": "https://github.com/dove-tools/liste",
   "license": "MIT",
   "keywords": [
     "roadmap",

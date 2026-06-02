@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mull-sys/liste/internal/discovery"
-	"github.com/mull-sys/liste/internal/output"
-	"github.com/mull-sys/liste/internal/store"
-	"github.com/mull-sys/liste/internal/tui"
+	"github.com/dove-tools/liste/internal/discovery"
+	"github.com/dove-tools/liste/internal/output"
+	"github.com/dove-tools/liste/internal/store"
+	"github.com/dove-tools/liste/internal/tui"
 	"github.com/spf13/cobra"
 )
 

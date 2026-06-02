@@ -8,7 +8,7 @@ import (
 
 	"github.com/charmbracelet/glamour"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/mull-sys/liste/internal/model"
+	"github.com/dove-tools/liste/internal/model"
 )
 
 var (

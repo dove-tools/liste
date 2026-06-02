@@ -3,8 +3,8 @@ package cmd
 import (
 	"strings"
 
-	"github.com/mull-sys/liste/internal/output"
-	"github.com/mull-sys/liste/internal/resolver"
+	"github.com/dove-tools/liste/internal/output"
+	"github.com/dove-tools/liste/internal/resolver"
 	"github.com/spf13/cobra"
 )
 

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mull-sys/liste/internal/model"
+	"github.com/dove-tools/liste/internal/model"
 	"github.com/spf13/cobra"
 )
 

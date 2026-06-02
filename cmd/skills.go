@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"time"
 
-	listeskills "github.com/mull-sys/liste/skills"
+	listeskills "github.com/dove-tools/liste/skills"
 	"github.com/spf13/cobra"
 )
 
@@ -92,8 +92,8 @@ func installSkills(claudeRoot, version string) error {
   "version": "%s",
   "description": "Claude Code skills for the liste CLI roadmap tracker.",
   "author": {
-    "name": "pufferhaus",
-    "url": "https://github.com/mull-sys/liste"
+    "name": "dove.tools",
+    "url": "https://github.com/dove-tools/liste"
   },
   "skills": ["./skills/"]
 }`, version)
