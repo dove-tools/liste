@@ -8,8 +8,8 @@
   tasks · in markdown
 ```
 
-[![CI](https://github.com/pufferhaus/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/pufferhaus/liste/actions/workflows/ci.yaml)
-[![Release](https://img.shields.io/github/v/release/pufferhaus/liste)](https://github.com/pufferhaus/liste/releases/latest)
+[![CI](https://github.com/mull-sys/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/mull-sys/liste/actions/workflows/ci.yaml)
+[![Release](https://img.shields.io/github/v/release/mull-sys/liste)](https://github.com/mull-sys/liste/releases/latest)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pufferhaus/liste)](https://goreportcard.com/report/github.com/pufferhaus/liste)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -22,7 +22,7 @@ Items are stored as individual markdown files with YAML frontmatter in a `.liste
 ### Homebrew (macOS / Linux)
 
 ```bash
-brew install pufferhaus/tap/liste
+brew install mull-sys/tap/liste
 ```
 
 ### Claude Code plugin
@@ -30,7 +30,7 @@ brew install pufferhaus/tap/liste
 The plugin ships Claude Code skills that teach Claude how to drive the `liste` CLI. You still need the `liste` binary on your `PATH` (install via Homebrew, Go install, or a release archive — see other sections); the plugin layers AI workflows on top of it.
 
 ```
-/plugin marketplace add pufferhaus/liste
+/plugin marketplace add mull-sys/liste
 /plugin install liste@liste
 ```
 
@@ -43,18 +43,18 @@ go install github.com/pufferhaus/liste@latest
 ### Scoop (Windows)
 
 ```bash
-scoop bucket add liste https://github.com/pufferhaus/liste
+scoop bucket add liste https://github.com/mull-sys/liste
 scoop install liste
 ```
 
 ### Release binaries
 
-Download the latest binary for your platform from [Releases](https://github.com/pufferhaus/liste/releases).
+Download the latest binary for your platform from [Releases](https://github.com/mull-sys/liste/releases).
 
 ### Build from source
 
 ```bash
-git clone https://github.com/pufferhaus/liste.git
+git clone https://github.com/mull-sys/liste.git
 cd liste
 go build -o liste .
 ```
