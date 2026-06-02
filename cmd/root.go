@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/pufferhaus/liste/internal/discovery"
-	"github.com/pufferhaus/liste/internal/output"
-	"github.com/pufferhaus/liste/internal/store"
-	"github.com/pufferhaus/liste/internal/tui"
+	"github.com/mull-sys/liste/internal/discovery"
+	"github.com/mull-sys/liste/internal/output"
+	"github.com/mull-sys/liste/internal/store"
+	"github.com/mull-sys/liste/internal/tui"
 	"github.com/spf13/cobra"
 )
 

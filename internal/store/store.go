@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pufferhaus/liste/internal/model"
+	"github.com/mull-sys/liste/internal/model"
 	"gopkg.in/yaml.v3"
 )
 

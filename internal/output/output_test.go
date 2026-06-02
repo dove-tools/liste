@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/output"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/output"
 )
 
 // stripANSI removes ANSI escape codes so we can test text content.

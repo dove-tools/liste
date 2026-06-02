@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/pufferhaus/liste/internal/resolver"
+	"github.com/mull-sys/liste/internal/resolver"
 	"github.com/spf13/cobra"
 )
 

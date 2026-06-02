@@ -10,7 +10,7 @@
 
 [![CI](https://github.com/mull-sys/liste/actions/workflows/ci.yaml/badge.svg)](https://github.com/mull-sys/liste/actions/workflows/ci.yaml)
 [![Release](https://img.shields.io/github/v/release/mull-sys/liste)](https://github.com/mull-sys/liste/releases/latest)
-[![Go Report Card](https://goreportcard.com/badge/github.com/pufferhaus/liste)](https://goreportcard.com/report/github.com/pufferhaus/liste)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mull-sys/liste)](https://goreportcard.com/report/github.com/mull-sys/liste)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A portable CLI tool for managing project roadmaps as structured markdown files. Designed for both humans and AI agents.
@@ -37,7 +37,7 @@ The plugin ships Claude Code skills that teach Claude how to drive the `liste` C
 ### Go install
 
 ```bash
-go install github.com/pufferhaus/liste@latest
+go install github.com/mull-sys/liste@latest
 ```
 
 ### Scoop (Windows)

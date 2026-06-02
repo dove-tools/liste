@@ -8,9 +8,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/glamour"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/output"
-	"github.com/pufferhaus/liste/internal/tui/views"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/output"
+	"github.com/mull-sys/liste/internal/tui/views"
 )
 
 var (

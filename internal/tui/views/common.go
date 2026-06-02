@@ -6,8 +6,8 @@ import (
 
 	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/output"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/output"
 )
 
 // ListItem wraps model.Item to implement bubbles list.Item.

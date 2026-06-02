@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/pufferhaus/liste/internal/tui"
+	"github.com/mull-sys/liste/internal/tui"
 )
 
 // TestTabBarRenders confirms the tab bar shows every configured tab name

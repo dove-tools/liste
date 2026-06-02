@@ -9,8 +9,8 @@ import (
 
 	"github.com/charmbracelet/huh"
 	"github.com/mattn/go-isatty"
-	"github.com/pufferhaus/liste/internal/model"
-	"github.com/pufferhaus/liste/internal/store"
+	"github.com/mull-sys/liste/internal/model"
+	"github.com/mull-sys/liste/internal/store"
 	"github.com/spf13/cobra"
 )
 

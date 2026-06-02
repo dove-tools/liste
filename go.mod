@@ -1,4 +1,4 @@
-module github.com/pufferhaus/liste
+module github.com/mull-sys/liste
 
 go 1.26
 
